@@ -5,8 +5,15 @@ Resources:
   S3WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: YOUR-BUCKET-NAME
-      AccessControl: PublicRead
+      BucketName: YOUR-BUCKWET-NAME
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: ObjectWriter
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
@@ -31,4 +38,3 @@ Outputs:
   WebsiteURL:
     Description: The URL of the S3 bucket website
     Value: !GetAtt S3WebsiteBucket.WebsiteURL
-
