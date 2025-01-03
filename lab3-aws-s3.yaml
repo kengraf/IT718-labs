@@ -5,7 +5,7 @@ Resources:
   S3WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: YOUR-BUCKWET-NAME
+      BucketName: YOUR-BUCKET-NAME
       OwnershipControls:
         Rules:
           - ObjectOwnership: ObjectWriter
